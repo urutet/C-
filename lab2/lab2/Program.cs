@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text; //Stringbuilder
 
 namespace lab2
 {
@@ -8,10 +9,11 @@ namespace lab2
         {
             bool flag = false;
             byte b8 = 240; //from 0 to 255
+            sbyte jb8ed = 127; //-128 to 127
             char symbol = 'c';
             decimal dec = 3.14m; //30-dig precision
             double dub = 3.14;
-            float fl = 2.314F;
+            float fl = 3.14F;
             int i = 3;
             uint ui = 4294000000; //unsigned from 0 to 4,294,967,295
             long lng = -340000000001234;
@@ -44,7 +46,7 @@ namespace lab2
             //Неявная типизация
             var number = 123456;
             Console.WriteLine("Number type: {0}", number.GetType());
-            Console.ReadLine();
+            
 
             //Nullable
             int? num = null; // упрощенная форма записи Nullable<T>
@@ -52,9 +54,79 @@ namespace lab2
 
             //var experiment
             var num1 = 1; //после определения неявно типизированной переменной
-                            //ее тип закрепляется за ней до конца существования
-            //num1 = "c";
+                          //ее тип закрепляется за ней до конца существования
+                          //num1 = "c";
+
+            //СТРОКИ
+            string str1 = "Hello", str2 = ", ", str3 = "World.";
+             
+            if (string.Compare(str1, str3) == 0)
+            {
+                Console.WriteLine("Strings are identical");
+            }
+            else
+            {
+                Console.WriteLine("Strings aren't identical");
+            }
+
+            string str = str1 + str2 + str3; //сцепка строк
+            Console.WriteLine(str);
+
+            string interStr = $"{str} Another sentence."; //интерполяция строк
+            Console.WriteLine(interStr);
+
+            string substr = interStr.Substring(3); //принимает начальный индекс
+            Console.WriteLine(substr);
+
+            string[] splittedStr = interStr.Split(" "); //разбиение и вывод слов в строке
+            foreach (string s in splittedStr)
+            {
+                Console.WriteLine(s);
+            }
+
+            //вставка подстроки (позиция, текст)
+            string substrInsert = substr.Insert(0, "Substring inserted ");
+            Console.WriteLine(substrInsert);
+
+            //удаление подстроки
+            string substrDelete = substrInsert.Remove(5, 10);
+            Console.WriteLine(substrDelete);
+
+            //пустая строка
+            string emptyStr = String.Empty;
+
+            //null строка
+            string nullStr = null;
+
+            //проверка на пустую строку
+            if (String.IsNullOrEmpty(emptyStr))
+            {
+                Console.WriteLine("String \"emptyStr\" is Null or empty");
+            }
+            else
+            {
+                Console.WriteLine("String isn't empty");
+            }
+
+
+            if (String.IsNullOrEmpty(nullStr))
+            {
+                Console.WriteLine("String \"nullStr\" is Null or empty");
+            }
+            else
+            {
+                Console.WriteLine("String isn't empty");
+            }
+
+
+            //Stringbuilder
+            StringBuilder builtStr = new StringBuilder("qwerty", 50);
+
+            builtStr.Append(new char[] { 'A', 'B', 'C' });
+            builtStr.Insert(0, " ElijahNoCaptainElijah");
+            builtStr.Remove(5, 3);
 
         }
+    }
     }
 }
