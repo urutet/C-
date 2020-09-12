@@ -53,9 +53,10 @@ namespace lab2
             Nullable<bool> flag1 = null; //могут иметь значение null
 
             //var experiment
-            var num1 = 1; //после определения неявно типизированной переменной
-                          //ее тип закрепляется за ней до конца существования
-                          //num1 = "c";
+            var num1 = "1"; //после определения неявно типизированной переменной
+                            //ее тип закрепляется за ней до конца существования
+                            //num1 = "1";
+            
 
             //СТРОКИ
             string str1 = "Hello", str2 = ", ", str3 = "World.";
@@ -126,7 +127,52 @@ namespace lab2
             builtStr.Insert(0, " ElijahNoCaptainElijah");
             builtStr.Remove(5, 3);
 
+            Console.WriteLine(builtStr);
+
+            //массивы
+            int[,] matrix = new int[,] { { 1, 2 }, { 3, 4 } };
+
+            for (int k = 0; k < 2; k++)
+            {
+                for (int j = 0; j < 2; j++)
+                {
+                    Console.Write($"{matrix[k, j]} \t");
+                }
+                Console.WriteLine();
+            }
+
+
+            //массив строк
+            string[] strArray = new string[] { "q", "w", "e", "r", "t", "y" };
+            int strArrayLength = strArray.GetLength(0);
+            for (int k = 0; k<strArrayLength; k++)
+            {
+                Console.Write($"{strArray[k]}");
+            }
+
+       
+            Console.WriteLine($"\nString array length: {strArrayLength}");
+
+            
+            Console.WriteLine("Enter the number of the element (up to 6): ");
+            int elementNum = int.Parse(Console.ReadLine()); //Как без парсинга?
+
+            while (elementNum > 6)
+            {
+                if (elementNum <= 6)
+                {
+                    Console.WriteLine("Enter the string you want to replace with");
+                    string addedStr = Console.ReadLine();
+                    strArray[elementNum] = addedStr;
+                }
+                else
+                {
+                    Console.WriteLine("Enter number less or equal 6");
+                    elementNum = int.Parse(Console.ReadLine());
+                    continue;
+                }
+            }
+
         }
-    }
     }
 }
