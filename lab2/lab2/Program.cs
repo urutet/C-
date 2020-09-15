@@ -80,9 +80,9 @@ namespace lab2
             Console.WriteLine(substr);
 
             string[] splittedStr = interStr.Split(" "); //разбиение и вывод слов в строке
-            foreach (string s in splittedStr)
+            foreach (string v in splittedStr)
             {
-                Console.WriteLine(s);
+                Console.WriteLine(v);
             }
 
             //вставка подстроки (позиция, текст)
@@ -157,13 +157,14 @@ namespace lab2
             Console.WriteLine("Enter the number of the element (up to 6): ");
             int elementNum = int.Parse(Console.ReadLine()); //Как без парсинга?
 
-            while (elementNum > 6)
+            while (true)
             {
                 if (elementNum <= 6)
                 {
                     Console.WriteLine("Enter the string you want to replace with");
                     string addedStr = Console.ReadLine();
-                    strArray[elementNum] = addedStr;
+                    strArray[elementNum - 1] = addedStr;
+                    break;
                 }
                 else
                 {
@@ -172,6 +173,139 @@ namespace lab2
                     continue;
                 }
             }
+
+            for(int k = 0; k < strArrayLength; k++)
+            {
+                Console.Write($"{strArray[k]} ");
+            }
+
+            Console.WriteLine();
+
+            int[][] jaggedArr = new int[3][];
+            jaggedArr[0] = new int[] { 2, 3 };
+            jaggedArr[1] = new int[] { 4, 5, 6 };
+            jaggedArr[2] = new int[] { 7, 8, 9, 10 };
+
+            for (int k = 0; k < jaggedArr.Length; k++)
+            {
+                switch (k)
+                {
+                    case 0:
+                        for (int n = 0; n < jaggedArr[k].Length; n++)
+                        {
+                            Console.Write($"{jaggedArr[k][n]} ");
+                        }
+                        Console.WriteLine();
+                        break;
+                    case 1:
+                        for (int n = 0; n < jaggedArr[k].Length; n++)
+                        {
+                            Console.Write($"{jaggedArr[k][n]} ");
+                        }
+                        Console.Write("\n");
+                        break;
+                    case 2:
+                        for (int n = 0; n < jaggedArr[k].Length; n++)
+                        {
+                            Console.Write($"{jaggedArr[k][n]} ");
+                        }
+                        Console.Write("\n");
+                        break;
+                }
+            }
+
+            //var str & arr
+            var undefStr = "Undef qwerty str";
+            var undefArr = new[] { 4, 5, 6 };
+
+            Console.WriteLine(undefStr);
+
+            foreach (var f in undefArr)
+            {
+                Console.Write($"{f}");
+            }
+
+            //кортежи tuple
+            (int, string, char, string, ulong) tuple = (215, "qwertized", 'c', "Elijah", 514124812);
+
+            Console.WriteLine($"{tuple.Item1}, {tuple.Item2}, {tuple.Item3}, {tuple.Item4}, {tuple.Item5} ");
+            Console.WriteLine($"{tuple.Item1}, {tuple.Item3}, {tuple.Item4}");
+
+            //является ли распаковкой, если не из var?
+            int x = tuple.Item1;
+            string s = tuple.Item2;
+            char ch = tuple.Item3;
+            string unpackedStr = tuple.Item4;
+            ulong uln = tuple.Item5;
+
+            (int TupInt, string TupStr, char TupCh, string TupStr1, ulong TupLong) = tuple;
+
+            (int, string, char, string, ulong) tuple1 = (4214, "ASDAF", 's', "Elijah", 218414);
+
+            (TupInt, _, _, _, TupLong) = tuple1;
+
+            if(tuple.Equals(tuple1))
+            {
+                Console.WriteLine("Кортежи равны");
+            }
+            else
+            {
+                Console.WriteLine("Кортежи не равны");
+            }
+
+            //functions
+
+            (int, int, int, char) firstFunc(int[] intArr, string newStr)
+            {
+                int max = 0;
+                int min = 99;
+                int sum = 0;
+                for(int i = 0; i < intArr.Length; i++)
+                {
+                    sum += intArr[i];
+                    if (intArr[i] <= min)
+                    {
+                        min = intArr[i];
+                    }
+                    if (intArr[i] >= max)
+                    {
+                        max = intArr[i];
+                    }
+                }
+
+                (int, int, int, char) tuple = (max, min, sum, newStr[0]);
+                return tuple;
+            }
+
+            int[] funcArr = new int[]{ 3, 4, 5, 6, 7, 8, 9, 10 };
+            string funcStr = "qwertized";
+            (int, int, int, char) funcTuple = firstFunc(funcArr, funcStr);
+
+            Console.WriteLine($"{funcTuple.Item1}, {funcTuple.Item2}, {funcTuple.Item3}, {funcTuple.Item4}");
+
+            int checkedFunc()
+            {
+                checked
+                {
+                    int maxCheckedInt = 2147483647;
+                    return maxCheckedInt; // выдает ошибку при ++
+
+                }
+            }
+
+            int uncheckedFunc()
+            {
+                unchecked
+                {
+                    int maxUncheckedInt = 2147483647;
+                    return maxUncheckedInt; //выдает отрицательное число при ++
+                }
+                
+            }
+
+            Console.WriteLine(checkedFunc());
+            Console.WriteLine(uncheckedFunc());
+
 
         }
     }
