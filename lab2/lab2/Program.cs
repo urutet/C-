@@ -157,12 +157,14 @@ namespace lab2
             Console.WriteLine("Enter the number of the element (up to 6): ");
             int elementNum = int.Parse(Console.ReadLine()); //Как без парсинга?
 
+
             while (true)
             {
                 if (elementNum <= 6)
                 {
                     Console.WriteLine("Enter the string you want to replace with");
                     string addedStr = Console.ReadLine();
+
                     strArray[elementNum - 1] = addedStr;
                     break;
                 }
@@ -173,6 +175,7 @@ namespace lab2
                     continue;
                 }
             }
+
 
             for(int k = 0; k < strArrayLength; k++)
             {
@@ -310,3 +313,4 @@ namespace lab2
         }
     }
 }
+
