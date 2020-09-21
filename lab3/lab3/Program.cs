@@ -53,6 +53,19 @@ namespace lab3
             }
         }
 
+        public float this[int j]
+        {
+            get
+            {
+                return arr[j];
+            }
+
+            set
+            {
+                arr[j] = value;
+            }
+        }
+
 
     }
 
