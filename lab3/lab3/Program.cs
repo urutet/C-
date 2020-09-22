@@ -5,9 +5,8 @@ namespace lab3
     public class Stack
     {
         int numberOfItems;
-        const int defaultNum = 20;
-        float[] arr;
-        float value;
+        readonly int defaultNum = 20;
+        public float[] arr;
 
         public Stack()
         {
@@ -17,6 +16,11 @@ namespace lab3
         public Stack(int numOfElements)
         {
             arr = new float[numOfElements];
+        }
+
+        public int ArrayLength()
+        {
+            return arr.Length;
         }
 
         public bool IsStackEmpty
@@ -66,6 +70,19 @@ namespace lab3
             }
         }
 
+        public bool HasNegativeItems()
+        {
+            for(int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] < 0)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
 
     }
 
@@ -75,7 +92,49 @@ namespace lab3
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Stack[] stackArr = new Stack[5];
+            Random randNum = new Random();
+            float maxTopValue = float.MinValue;
+            float minTopValue = float.MaxValue;
+            int maxValueArrayNumber = 0;
+            int minValueArrayNumber = 0;
+
+            for (int s = 0; s < 5; s++)
+            {
+                stackArr[s] = new Stack();
+            }
+
+            for (int i = 0; i < stackArr.Length; i++)
+            {
+                for (int j = 0; j < stackArr[i].ArrayLength(); j++)
+                {
+                    stackArr[i].Push((float)randNum.NextDouble() * randNum.Next(int.MinValue, int.MaxValue));
+                }
+            }
+
+            for (int i = 0; i < stackArr.Length; i++)
+            {
+                if(stackArr[i].HasNegativeItems())
+                {
+                    Console.WriteLine($"Stack {i + 1} has negative numbers in it.");
+                }
+
+                if (stackArr[i][0] >= maxTopValue)
+                {
+                    maxTopValue = stackArr[i][0];
+                    maxValueArrayNumber = i;
+                }
+
+                if (stackArr[i][0] <= minTopValue)
+                {
+                    minTopValue = stackArr[i][0];
+                    minValueArrayNumber = i;
+                }
+            }
+
+            Console.WriteLine($"Stack {maxValueArrayNumber + 1} has the maximum top number among all stacks equal to {maxTopValue}.");
+            Console.WriteLine($"Stack {minValueArrayNumber + 1} has the minimum top number among all equal to {minTopValue}.");
+
         }
     }
 }
