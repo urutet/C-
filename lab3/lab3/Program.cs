@@ -2,92 +2,6 @@
 
 namespace lab3
 {
-    public class Stack
-    {
-        int numberOfItems;
-        readonly int defaultNum = 20;
-        public float[] arr;
-
-        public Stack()
-        {
-            arr = new float[defaultNum];
-        }
-
-        public Stack(int numOfElements)
-        {
-            arr = new float[numOfElements];
-        }
-
-        public int ArrayLength()
-        {
-            return arr.Length;
-        }
-
-        public bool IsStackEmpty
-        {
-            get
-            {
-                return numberOfItems == 0;
-            }
-        }
-
-        public void Push(float numberToAdd)
-        {
-            if(arr.Length == numberOfItems)
-            {
-                Console.WriteLine("Stack is full");
-            }
-            else
-            {
-                arr[numberOfItems++] = numberToAdd;
-            }
-        }
-
-        public float Pop()
-        {
-            if(IsStackEmpty)
-            {
-                throw new System.InvalidOperationException("Unable to pop. Stack is empty.");
-            }
-            else
-            {
-                float fl = arr[--numberOfItems];
-                arr[numberOfItems] = 0;
-                return fl;
-            }
-        }
-
-        public float this[int j]
-        {
-            get
-            {
-                return arr[j];
-            }
-
-            set
-            {
-                arr[j] = value;
-            }
-        }
-
-        public bool HasNegativeItems()
-        {
-            for(int i = 0; i < arr.Length; i++)
-            {
-                if (arr[i] < 0)
-                {
-                    return true;
-                }
-            }
-
-            return false;
-        }
-
-
-    }
-
-
-
     class Program
     {
         static void Main(string[] args)
@@ -98,6 +12,9 @@ namespace lab3
             float minTopValue = float.MaxValue;
             int maxValueArrayNumber = 0;
             int minValueArrayNumber = 0;
+
+            //anonimous type
+            var anonimous = new { Name = "Elijah" };
 
             for (int s = 0; s < 5; s++)
             {
@@ -135,6 +52,8 @@ namespace lab3
             Console.WriteLine($"Stack {maxValueArrayNumber + 1} has the maximum top number among all stacks equal to {maxTopValue}.");
             Console.WriteLine($"Stack {minValueArrayNumber + 1} has the minimum top number among all equal to {minTopValue}.");
 
+            Console.WriteLine($"Type: {anonimous.GetType()}");
+            Console.WriteLine(anonimous.Name);
         }
     }
 }

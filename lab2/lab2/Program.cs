@@ -306,8 +306,8 @@ namespace lab2
                 
             }
 
-            Console.WriteLine(checkedFunc());
-            Console.WriteLine(uncheckedFunc());
+            //Console.WriteLine(checkedFunc());
+            //Console.WriteLine(uncheckedFunc());
 
 
         }
