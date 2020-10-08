@@ -2,6 +2,14 @@
 
 namespace lab3
 {
+    partial class Stack
+    {
+        public void Ping()
+        {
+            Console.WriteLine("Pinging");
+        }
+    }
+
     class Program
     {
         static void Main(string[] args)
@@ -36,13 +44,13 @@ namespace lab3
                     Console.WriteLine($"Stack {i + 1} has negative numbers in it.");
                 }
 
-                if (stackArr[i][0] >= maxTopValue)
+                if (stackArr[i][stackArr.Length] >= maxTopValue)
                 {
                     maxTopValue = stackArr[i][0];
                     maxValueArrayNumber = i;
                 }
 
-                if (stackArr[i][0] <= minTopValue)
+                if (stackArr[i][stackArr.Length] <= minTopValue)
                 {
                     minTopValue = stackArr[i][0];
                     minValueArrayNumber = i;

@@ -1,7 +1,7 @@
 ﻿using System;
 namespace lab3
 {
-    public class Stack
+    public partial class Stack
     {
         int numberOfItems;
         const int defaultNum = 10;
@@ -125,8 +125,8 @@ namespace lab3
         public override int GetHashCode()
         {
             int a = arr.Length;
-            float b = arr[0];
-            return (int)(a % b + 1241748124712489124/25);
+            float b = arr[arr.Length];
+            return (int)(1241748124712489124/a + 1241748124712489124 / 25 % b);
         }
 
 
