@@ -7,11 +7,16 @@ namespace lab4
         const int defaultNum = 1;
         static int numOfObjects;
         int numberOfElements;
+        public int NumberOfElements { get => numberOfElements; }
         public int this[int i]
         {
             get
             {
                 return arr[i];
+            }
+            set
+            {
+                arr[i] = value;
             }
         }
 
@@ -126,12 +131,12 @@ namespace lab4
 
     public static class StatisticOperation
     {
-        /*public static int Sum(Queue obj)
+        public static int Sum(Queue obj)
         {
             int sum = 0;
-            for (int i = 0; i < obj.arr.Length; i++)
+            for (int i = 0; i < obj.NumberOfElements; i++)
             {
-                sum += obj.arr[i];
+                sum += obj[i];
             }
             return sum;
         }
@@ -140,16 +145,16 @@ namespace lab4
         {
             int min = 99;
             int max = 0;
-            for (int i = 0; i < obj.arr.Length; i++)
+            for (int i = 0; i < obj.NumberOfElements; i++)
             {
-                if (obj.arr[i] >= max)
+                if (obj[i] >= max)
                 {
-                    max = obj.arr[i];
+                    max = obj[i];
                 }
 
-                if (obj.arr[i] <= min)
+                if (obj[i] <= min)
                 {
-                    min = obj.arr[i];
+                    min = obj[i];
                 }
             }
             return max - min;
@@ -157,7 +162,7 @@ namespace lab4
 
         public static int NumOfElements(Queue obj)
         {
-            return obj.arr.Length;
+            return obj.NumberOfElements;
         }
 
         //static int FirstPointIndex() -----> в массиве 0? не очень понял задание
@@ -165,7 +170,7 @@ namespace lab4
         static int FirstPointIndex(Queue obj)
         {
             return 0;
-        }*/
+        }
 
 
         public static int LastItem(this int[] arr)
