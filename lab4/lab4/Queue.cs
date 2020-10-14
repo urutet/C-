@@ -89,6 +89,12 @@ namespace lab4
             return obj.arr.Length;
         }
 
+        public class Owner
+        {
+            string id;
+            string organizationName; //ne zabyt' proinitsializirovat
+        }
+
         
     }
 }
