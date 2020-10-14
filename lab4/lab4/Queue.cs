@@ -7,6 +7,13 @@ namespace lab4
         const int defaultNum = 1;
         static int numOfObjects;
         int numberOfElements;
+        public int this[int i]
+        {
+            get
+            {
+                return arr[i];
+            }
+        }
 
         public Queue()
         {
@@ -114,6 +121,43 @@ namespace lab4
                 Console.WriteLine($"Object created on {date.Day}.{date.Month}.{date.Year}");
             }
 
+        }
+
+        static class StatisticOperation
+        {
+            static int Sum(Queue obj)
+            {
+                int sum = 0;
+                for (int i = 0; i < obj.arr.Length; i++)
+                {
+                    sum += obj.arr[i];
+                }
+                return sum;
+            }
+
+            static int MinMaxDiff(Queue obj)
+            {
+                int min = 99;
+                int max = 0;
+                for (int i = 0; i < obj.arr.Length; i++)
+                {
+                    if (obj.arr[i] >= max)
+                    {
+                        max = obj.arr[i];
+                    }
+
+                    if (obj.arr[i] <= min)
+                    {
+                        min = obj.arr[i];
+                    }
+                }
+                return max - min;
+            }
+
+            static int NumOfElements(Queue obj)
+            {
+                return obj.arr.Length;
+            }
         }
     }
 }
