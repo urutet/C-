@@ -121,43 +121,70 @@ namespace lab4
                 Console.WriteLine($"Object created on {date.Day}.{date.Month}.{date.Year}");
             }
 
+        }   
+    }
+
+    public static class StatisticOperation
+    {
+        /*public static int Sum(Queue obj)
+        {
+            int sum = 0;
+            for (int i = 0; i < obj.arr.Length; i++)
+            {
+                sum += obj.arr[i];
+            }
+            return sum;
         }
 
-        static class StatisticOperation
+        public static int MinMaxDiff(Queue obj)
         {
-            static int Sum(Queue obj)
+            int min = 99;
+            int max = 0;
+            for (int i = 0; i < obj.arr.Length; i++)
             {
-                int sum = 0;
-                for (int i = 0; i < obj.arr.Length; i++)
+                if (obj.arr[i] >= max)
                 {
-                    sum += obj.arr[i];
+                    max = obj.arr[i];
                 }
-                return sum;
-            }
 
-            static int MinMaxDiff(Queue obj)
-            {
-                int min = 99;
-                int max = 0;
-                for (int i = 0; i < obj.arr.Length; i++)
+                if (obj.arr[i] <= min)
                 {
-                    if (obj.arr[i] >= max)
-                    {
-                        max = obj.arr[i];
-                    }
-
-                    if (obj.arr[i] <= min)
-                    {
-                        min = obj.arr[i];
-                    }
+                    min = obj.arr[i];
                 }
-                return max - min;
+            }
+            return max - min;
+        }
+
+        public static int NumOfElements(Queue obj)
+        {
+            return obj.arr.Length;
+        }
+
+        //static int FirstPointIndex() -----> в массиве 0? не очень понял задание
+
+        static int FirstPointIndex(Queue obj)
+        {
+            return 0;
+        }*/
+
+
+        public static int LastItem(this int[] arr)
+        {
+            return arr[arr.Length];
+        }
+
+        public static int WordsCount(this string str)
+        {
+            int words = 0;
+            string[] result;
+            result = str.Split(" ");
+
+            foreach(string s in result)
+            {
+                words += 1;
             }
 
-            static int NumOfElements(Queue obj)
-            {
-                return obj.arr.Length;
-            }
+            return words;
         }
     }
 }
