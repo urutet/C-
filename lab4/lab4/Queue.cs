@@ -95,6 +95,25 @@ namespace lab4
             string organizationName; //ne zabyt' proinitsializirovat
         }
 
-        
+        public class Date
+        {
+            static DateTime date;
+            private int day;
+            private int month;
+            private int year;
+
+            public Date()
+            {
+                day = date.Day;
+                month = date.Month;
+                year = date.Year;
+            }
+
+            public void dateOfCreation()
+            {
+                Console.WriteLine($"Object created on {date.Day}.{date.Month}.{date.Year}");
+            }
+
+        }
     }
 }
