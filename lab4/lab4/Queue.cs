@@ -25,11 +25,6 @@ namespace lab4
             numOfObjects++;
         }
 
-        static Queue()
-        {
-            Console.WriteLine("First object created");
-        }
-
         public bool IsQueueEmpty
         {
             get
@@ -104,7 +99,15 @@ namespace lab4
         public class Owner
         {
             string id;
+            public string ID { get => id; }
             string organizationName; //ne zabyt' proinitsializirovat
+            public string OrganizationName { get => organizationName; }
+
+            public Owner(string ident, string oName)
+            {
+                id = ident;
+                organizationName = oName;
+            }
         }
 
         public class Date
@@ -116,6 +119,7 @@ namespace lab4
 
             public Date()
             {
+                date = DateTime.Now;
                 day = date.Day;
                 month = date.Month;
                 year = date.Year;
@@ -173,9 +177,9 @@ namespace lab4
         }
 
 
-        public static int LastItem(this int[] arr)
+        public static int LastItem(this Queue obj)
         {
-            return arr[arr.Length];
+            return obj[obj.NumberOfElements];
         }
 
         public static int WordsCount(this string str)
