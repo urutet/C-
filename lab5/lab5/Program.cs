@@ -20,9 +20,9 @@ namespace lab5
 
             Mammals pTiger = tiger1 as Mammals;
             Console.WriteLine("Tiger to mammals conversion is {0} completed", (pTiger != null) ? "" : "not"); //as - конвертация
-            Console.WriteLine(pTiger);
+            Console.WriteLine(pTiger); //после переопределения ToString выводит info
 
-            lion1.ToString();
+            Console.WriteLine(lion1.ToString()); 
 
             Print print1 = new Print();
             Mammals[] mammalsArr = new Mammals[] { lion1, tiger1 };
