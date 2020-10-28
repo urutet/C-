@@ -28,6 +28,13 @@ namespace lab5
             System.Threading.Thread.Sleep(1000);
             Console.WriteLine("Hunt complete!");
         }
+
+        public override string ToString()
+        {
+            return @$"Info:
+                    Position: {position}
+                    Object type: Lion";
+        }
     }
 
     public class Tiger : Mammals, IAnimal
@@ -112,6 +119,11 @@ namespace lab5
             Console.WriteLine("Hunt in progress...");
             System.Threading.Thread.Sleep(1000); //наохотился и спит
             Console.WriteLine("Hunt complete!");
+        }
+
+        public void a_method()
+        {
+            Console.WriteLine("a_method worked.");
         }
     }
 

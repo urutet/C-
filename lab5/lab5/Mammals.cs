@@ -26,7 +26,7 @@ namespace lab5
 
     }
 
-    public abstract class Mammals: Animal
+    public class Mammals: Animal
     {
         public override void eat()
         {
@@ -48,6 +48,13 @@ namespace lab5
         public override void a_method()
         {
 
+        }
+
+        public override string ToString()
+        {
+            return @$"Info:
+                    Position: {position}
+                    Object type: Mammals";
         }
 
     }
