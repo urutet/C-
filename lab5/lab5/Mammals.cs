@@ -10,6 +10,7 @@ namespace lab5
             Console.WriteLine("Animal eats.");
         }
         public abstract void sleep();
+        public abstract void a_method();
     }
 
     public interface IAnimal
@@ -21,6 +22,7 @@ namespace lab5
         {
             Console.WriteLine("Animal hunts");
         }
+        void a_method();
 
     }
 
@@ -42,6 +44,12 @@ namespace lab5
         {
             Console.WriteLine($"Mammal sleeps.");
         }
+
+        public override void a_method()
+        {
+
+        }
+
     }
 
     public class Bird : Animal
@@ -62,6 +70,11 @@ namespace lab5
         {
             Console.WriteLine($"Bird sleeps.");
         }
+
+        public override void a_method()
+        {
+
+        }
     }
 
     public class Fish : Animal
@@ -81,6 +94,11 @@ namespace lab5
         public override void sleep()
         {
             Console.WriteLine($"Fish sleeps.");
+        }
+
+        public override void a_method()
+        {
+
         }
     }
 }

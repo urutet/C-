@@ -172,4 +172,37 @@ namespace lab5
     }
 
     //public class AnotherTypeOfParrot: Parrot { } Попугай запечатан, поэтоиу невозможно создать производный класс
+
+    public class NewClass: Animal, IAnimal
+    {
+        public NewClass() { }
+        public override void eat()
+        {
+            Console.WriteLine("Parrot eat breadcrumbs and drink water.");
+        }
+
+        public override int move()
+        {
+            position += 1;
+            Console.WriteLine($"Parrot flies to {position}.");
+            return position;
+        }
+
+        public override void sleep()
+        {
+            Console.WriteLine($"Parrot sleeps.");
+        }
+
+        public void hunt()
+        {
+            Console.WriteLine("Hunt in progress...");
+            System.Threading.Thread.Sleep(1000); //наохотился и спит
+            Console.WriteLine("Hunt complete!");
+        }
+
+        public override void a_method()
+        {
+            Console.WriteLine("a_method worked.");
+        }
+    }
 }
