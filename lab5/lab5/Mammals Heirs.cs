@@ -217,4 +217,12 @@ namespace lab5
             Console.WriteLine("a_method worked.");
         }
     }
+
+    public class Print
+    {
+        public void IAmPrinting(Animal obj)
+        {
+            Console.WriteLine(obj.ToString());
+        }
+    }
 }

@@ -23,6 +23,14 @@ namespace lab5
             Console.WriteLine(pTiger);
 
             lion1.ToString();
+
+            Print print1 = new Print();
+            Mammals[] mammalsArr = new Mammals[] { lion1, tiger1 };
+            foreach(var s in mammalsArr)
+            {
+                print1.IAmPrinting(s);
+                Console.WriteLine();
+            }
         }
     }
 }
