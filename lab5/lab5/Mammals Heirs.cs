@@ -212,9 +212,15 @@ namespace lab5
             Console.WriteLine("Hunt complete!");
         }
 
+        void IAnimal.a_method()
+        {
+            Console.WriteLine("Ianimal.a_method worked.");
+        }
+
         public override void a_method()
         {
-            Console.WriteLine("a_method worked.");
+            Console.WriteLine("Animal.a_method worked.");
+
         }
     }
 

@@ -31,6 +31,11 @@ namespace lab5
                 print1.IAmPrinting(s);
                 Console.WriteLine();
             }
+
+            NewClass new1 = new NewClass();
+            ((IAnimal)new1).a_method();
+            new1.a_method();
+
         }
     }
 }
