@@ -10,6 +10,12 @@ namespace lab6
             Tiger tiger1 = new Tiger();
             NewClass newClass1 = new NewClass();
             Croc croc1 = new Croc();
+            Parrot parrot1 = new Parrot();
+            parrot1.IsPredator = false;
+            parrot1.YearOfBirth = 1993;
+            Owl owl1 = new Owl();
+            owl1.IsPredator = true;
+            owl1.YearOfBirth = 2013;
 
             Console.WriteLine("Croc can{0} be converted to object", (croc1 is Object) ? "" : "not");
             Console.WriteLine("Croc can{0} be converted to ValueType", (croc1 is ValueType) ? "" : "not"); //is - проверка на конвертацию
@@ -46,11 +52,16 @@ namespace lab6
 
 
             Zoo zoo1 = new Zoo();
+            tiger1.YearOfBirth = 2001;
             zoo1.Add(tiger1);
             zoo1.Add(lion1);
+            zoo1.Add(owl1);
+            zoo1.Add(parrot1);
             zoo1.ShowList();
-            zoo1.Remove(1);
-            zoo1.ShowList();
+            zoo1.Remove(tiger1);
+
+            YearCompare yearCmp = new YearCompare();
+            zoo1.Sort(yearCmp);
 
         }
     }

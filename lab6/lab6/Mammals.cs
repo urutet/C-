@@ -27,7 +27,7 @@ namespace lab6
     public partial class Lion : Mammals, IAnimal
     {
         public Lion() { }
-        public override void eat()
+    public override void eat()
         {
             Console.WriteLine("Lion drinks milk.");
         }
@@ -50,6 +50,7 @@ namespace lab6
         {
             return @$"Info:
                     Position: {position}
+                    Date of birth: {YearOfBirth}
                     Object type: Lion";
         }
     }
@@ -80,6 +81,14 @@ namespace lab6
             System.Threading.Thread.Sleep(1000); //наохотился и спит
             Console.WriteLine("Hunt complete!");
         }
+
+        public override string ToString()
+        {
+            return @$"Info:
+                    Position: {position}
+                    Date of birth: {YearOfBirth}
+                    Object type: Tiger";
+        }
     }
 
     public class Owl : Bird, IAnimal
@@ -107,6 +116,15 @@ namespace lab6
             Console.WriteLine("Hunt in progress...");
             System.Threading.Thread.Sleep(1000); //наохотился и спит
             Console.WriteLine("Hunt complete!");
+        }
+
+        public override string ToString()
+        {
+            return @$"Info:
+                    Position: {position}
+                    Date of birth: {YearOfBirth}
+                    Predator: {IsPredator}
+                    Object type: Owl";
         }
     }
 
@@ -197,6 +215,15 @@ namespace lab6
             Console.WriteLine("Hunt in progress...");
             System.Threading.Thread.Sleep(1000); //наохотился и спит
             Console.WriteLine("Hunt complete!");
+        }
+
+        public override string ToString()
+        {
+            return @$"Info:
+                    Position: {position}
+                    Date of birth: {YearOfBirth}
+                    Predator: {IsPredator}
+                    Object type: Parrot";
         }
     }
 

@@ -1,10 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 namespace lab6
 {
     public abstract class Animal
     {
         protected int position;
+        private int yearOfBirth;
+        public int YearOfBirth { get => yearOfBirth; set => yearOfBirth = value; }
         public abstract int move();
+        bool isPredator;
+        public bool IsPredator { get => isPredator; set => isPredator = value; }
         public virtual void eat()
         {
             Console.WriteLine("Animal eats.");
@@ -119,36 +124,49 @@ namespace lab6
         }
     }
 
+    public class YearCompare: IComparer<Animal>
+    {
+        public int Compare(int a, int b)
+        {
+            if (a > b)
+            {
+                return 1;
+            }
+            else
+            {
+                return -1;
+            }
+        }
+    }
+
     public class Zoo
     {
-        Animal[] zoo;
-        int zooSize;
-        public Zoo()
-        {
-            Console.WriteLine("Enter the size of the zoo");
-            zooSize = Console.Read();
-            Animal[] zoo = new Animal[zooSize];
-        }
+        List<Animal> zoo = new List<Animal>();
+        public List<Animal> ZooGS { get; set; }
 
         public void Add(Animal obj)
         {
-            zoo[zoo.Length] = obj;
+            zoo.Add(obj);
         }
 
-        public void Remove(int i)
+        public Animal Remove(Animal obj)
         {
-            zoo[i] = null;
-            for(int j = i; j < zoo.Length; j++)
+            foreach (Animal animal in zoo)
             {
-                zoo[j] = zoo[j + 1];
+                if (obj == animal)
+                {
+                    zoo.Remove(obj);
+                    return obj;
+                }
             }
+            return null;
         }
 
         public void ShowList()
         {
-            for (int j = 0; j < zoo.Length; j++)
+            foreach(Animal animal in zoo)
             {
-                Console.WriteLine(zoo[j]);
+                Console.WriteLine(animal);
             }
         }
     }
