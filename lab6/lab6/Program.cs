@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace lab6
 {
@@ -61,7 +62,17 @@ namespace lab6
             zoo1.Remove(tiger1);
 
             YearCompare yearCmp = new YearCompare();
-            zoo1.Sort(yearCmp);
+            zoo1.ZooGS.Sort(yearCmp);
+            Console.WriteLine("After sorting");
+            zoo1.ShowList();
+            /*var sortedList = from animal in zoo1.ZooGS
+                             orderby animal.YearOfBirth descending
+                             select animal;
+
+            foreach(Animal animal in zoo1.ZooGS)
+            {
+                Console.WriteLine(animal);
+            }*/
 
         }
     }

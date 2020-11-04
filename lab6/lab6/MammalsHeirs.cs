@@ -126,9 +126,9 @@ namespace lab6
 
     public class YearCompare: IComparer<Animal>
     {
-        public int Compare(int a, int b)
+        public int Compare(Animal obj1, Animal obj2)
         {
-            if (a > b)
+            if (obj1.YearOfBirth > obj2.YearOfBirth)
             {
                 return 1;
             }
@@ -142,7 +142,7 @@ namespace lab6
     public class Zoo
     {
         List<Animal> zoo = new List<Animal>();
-        public List<Animal> ZooGS { get; set; }
+        public List<Animal> ZooGS { get => zoo; }
 
         public void Add(Animal obj)
         {
