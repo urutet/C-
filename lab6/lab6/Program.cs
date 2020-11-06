@@ -61,7 +61,7 @@ namespace lab6
             zoo1.ShowList();
             zoo1.Remove(tiger1);
 
-            YearCompare yearCmp = new YearCompare();
+            ZooController yearCmp = new ZooController();
             zoo1.ZooGS.Sort(yearCmp);
             Console.WriteLine("After sorting");
             zoo1.ShowList();
@@ -74,6 +74,14 @@ namespace lab6
                 Console.WriteLine(animal);
             }*/
 
+
+            //ADDITIONAL TASKS
+            string path = @"/Users/elijah/БГТУ/2 Курс/ООП/Лабораторные работы/Лабораторная работа 1/C-/lab6/lab6.txt";
+            List<Animal> collection = ZooController.ReadFile(path);
+            foreach(Animal i in collection)
+            {
+                Console.WriteLine(i);
+            }
         }
     }
 }

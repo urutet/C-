@@ -26,13 +26,17 @@ namespace lab6
 
     public partial class Lion : Mammals, IAnimal
     {
-        public Lion() { }
-    public override void eat()
+        public Lion(){}
+        public Lion(int pos, int yob, bool isPred)
+        {
+            position = pos;
+            YearOfBirth = yob;
+            IsPredator = isPred;
+        }
+        public override void eat()
         {
             Console.WriteLine("Lion drinks milk.");
         }
-
-        
 
         public override void sleep()
         {
@@ -58,6 +62,12 @@ namespace lab6
     public class Tiger : Mammals, IAnimal
     {
         public Tiger() { }
+        public Tiger(int pos, int yob, bool isPred)
+        {
+            position = pos;
+            YearOfBirth = yob;
+            IsPredator = isPred;
+        }
         public override void eat()
         {
             Console.WriteLine("Tiger drinks milk.");

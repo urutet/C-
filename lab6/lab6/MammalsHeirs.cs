@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using Newtonsoft.Json;
 namespace lab6
 {
     public abstract class Animal
@@ -16,6 +18,13 @@ namespace lab6
         }
         public abstract void sleep();
         public abstract void a_method();
+        /*public Animal(int pos, int yob, bool isPred)
+        {
+            position = pos;
+            YearOfBirth = yob;
+            IsPredator = isPred;
+        }
+        public Animal() { }*/
     }
 
     public interface IAnimal
@@ -33,6 +42,13 @@ namespace lab6
 
     public class Mammals : Animal
     {
+        public Mammals(int pos, int yob, bool isPred)
+        {
+            position = pos;
+            YearOfBirth = yob;
+            IsPredator = isPred;
+        }
+        public Mammals() { }
         public override void eat()
         {
             Console.WriteLine("Mammal drinks milk.");
@@ -124,7 +140,7 @@ namespace lab6
         }
     }
 
-    public class YearCompare: IComparer<Animal>
+    public class ZooController: IComparer<Animal>
     {
         public int Compare(Animal obj1, Animal obj2)
         {
@@ -137,13 +153,45 @@ namespace lab6
                 return -1;
             }
         }
+
+        async static public List<Animal> ReadFile(string path)
+        {
+            List<Animal> zooObj = new List<Animal>();
+
+            try
+            {
+                using (StreamReader reader = new StreamReader(path))
+                {
+                    string[] fileString;
+                    while (!reader.EndOfStream)
+                    {
+                        fileString = reader.ReadLine().Split(" ");
+                        Mammals animal1 = new Mammals(Convert.ToInt32(fileString[0]), Convert.ToInt32(fileString[1]), Convert.ToBoolean(fileString[2]));
+                        zooObj.Add(animal1);
+                    }
+                    /*while ((fileString = reader.ReadLine().Split(" ")) != null);
+                    {
+                        Mammals animal1 = new Mammals(Convert.ToInt32(fileString[0]), Convert.ToInt32(fileString[1]), Convert.ToBoolean(fileString[2]));
+                        zooObj.Add(animal1);
+                    Реализация дает тот же результат,
+                    НО Object reference not set to an instance of an object В ПОДАРОК!
+                    }*/
+
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            return zooObj;
+        }
     }
 
     public class Zoo
     {
         List<Animal> zoo = new List<Animal>();
         public List<Animal> ZooGS { get => zoo; }
-
         public void Add(Animal obj)
         {
             zoo.Add(obj);
@@ -169,5 +217,5 @@ namespace lab6
                 Console.WriteLine(animal);
             }
         }
-    }
+    }   
 }
