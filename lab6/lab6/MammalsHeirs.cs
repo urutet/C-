@@ -7,6 +7,7 @@ namespace lab6
     public abstract class Animal
     {
         protected int position;
+        public int Position { get => position; set => position = value; }
         private int yearOfBirth;
         public int YearOfBirth { get => yearOfBirth; set => yearOfBirth = value; }
         public abstract int move();
@@ -75,6 +76,8 @@ namespace lab6
         {
             return @$"Info:
                     Position: {position}
+                    Year Of Birth: {YearOfBirth}
+                    Is Predator: {IsPredator}
                     Object type: Mammals";
         }
 
@@ -154,7 +157,7 @@ namespace lab6
             }
         }
 
-        async static public List<Animal> ReadFile(string path)
+        static public List<Animal> ReadFile(string path)
         {
             List<Animal> zooObj = new List<Animal>();
 

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace lab6
 {
@@ -76,11 +78,22 @@ namespace lab6
 
 
             //ADDITIONAL TASKS
+            Console.WriteLine("Read from txt");
             string path = @"/Users/elijah/БГТУ/2 Курс/ООП/Лабораторные работы/Лабораторная работа 1/C-/lab6/lab6.txt";
             List<Animal> collection = ZooController.ReadFile(path);
             foreach(Animal i in collection)
             {
                 Console.WriteLine(i);
+            }
+
+
+            Console.WriteLine("Read from JSON \n");
+            string path1 = @"/Users/elijah/БГТУ/2 Курс/ООП/Лабораторные работы/Лабораторная работа 1/C-/lab6/lab6.json";
+            using (StreamReader sr = new StreamReader(path1))
+            {
+                string file = sr.ReadToEnd();
+                Mammals animal2 = JsonConvert.DeserializeObject<Mammals>(file);
+                Console.WriteLine(animal2);
             }
         }
     }
