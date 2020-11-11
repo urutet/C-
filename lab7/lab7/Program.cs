@@ -10,6 +10,8 @@ namespace lab7
     {
         static void Main(string[] args)
         {
+            Logger logs = new Logger(); //Logger
+
             Lion lion1 = new Lion();
             Tiger tiger1 = new Tiger();
             NewClass newClass1 = new NewClass();
@@ -92,6 +94,7 @@ namespace lab7
             catch (FileCannotBeFoundException e)
             {
                 Console.WriteLine(e.Message);               //Exception 1
+                logs.AddException(e);
             }
 
 
@@ -108,6 +111,7 @@ namespace lab7
                 catch (JsonSerializationException e)
                 {
                     Console.WriteLine(e.Message);               //Exception 2
+                    logs.AddException(e);
                 }
             }
 
@@ -127,6 +131,7 @@ namespace lab7
                 Console.WriteLine(e.Message);
                 tiger2.YearOfBirth = 2001;                                              //Exception 3
                 Console.WriteLine($"Year of birth set to default: {tiger2.YearOfBirth}");
+                logs.AddException(e);
             }
 
             int[] arr = new int[5] { 1, 2, 3, 4, 5 };
@@ -142,6 +147,7 @@ namespace lab7
             catch (IndexOutOfRangeException e)
             {
                 Console.WriteLine(e.Message);
+                logs.AddException(e);
             }
 
 
@@ -153,13 +159,15 @@ namespace lab7
                 {
                     if (ch == '!' || ch == '$' || ch == '#' || ch == '#' || ch == 'ˆ')
                     {
-                        throw new InvalidSymbolException($"Invalid symbol {ch} entered");
+                        throw new InvalidSymbolException($"Invalid symbol {ch} entered");       //Exception 5
                     }
                 }
             }
             catch (InvalidSymbolException e)
             {
                 Console.WriteLine(e.Message);
+                logs.AddException(e);
+
             }
             catch
             {
@@ -173,6 +181,11 @@ namespace lab7
 
             Debug.Assert(true, "Program finished."); //outputs stack if the condition is false
                                                      //works only in debug builds
+
+            //ADDITIONAL TASK (Logger)
+            string loggerFilePath = @"/Users/elijah/БГТУ/2 Курс/ООП/Лабораторные работы/Лабораторная работа 1/C-/lab7/lab7.txt";
+
+            logs.LogToFile(loggerFilePath);
         }
     }
 }
