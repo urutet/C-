@@ -186,6 +186,8 @@ namespace lab7
             string loggerFilePath = @"/Users/elijah/БГТУ/2 Курс/ООП/Лабораторные работы/Лабораторная работа 1/C-/lab7/lab7.txt";
 
             logs.LogToFile(loggerFilePath);
+
+            logs.LogToConsole();
         }
     }
 }

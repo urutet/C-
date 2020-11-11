@@ -38,12 +38,21 @@ namespace lab7
 
         public void LogToFile(string filePath)
         {
-            using (StreamWriter writer = new StreamWriter(filePath))
+            using (StreamWriter writer = File.AppendText(filePath))
             {
                 foreach(string str in log)
                 {
                     writer.WriteLine(str);
                 }
+                writer.Close();
+            }
+        }
+
+        public void LogToConsole()
+        {
+            foreach (string str in log)
+            {
+                Console.WriteLine(str);
             }
         }
     }

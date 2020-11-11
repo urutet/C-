@@ -1,5 +1,5 @@
 -------------------
-11/11/2020 19:16
+11/11/2020 19:33
 |INFO:
 
 |Type: lab7.FileCannotBeFoundException
@@ -15,7 +15,7 @@
 
 
 -------------------
-11/11/2020 19:16
+11/11/2020 19:33
 |INFO:
 
 |Type: lab7.InvalidNumberException
@@ -31,7 +31,7 @@
 
 
 -------------------
-11/11/2020 19:16
+11/11/2020 19:33
 |INFO:
 
 |Type: System.IndexOutOfRangeException
@@ -41,6 +41,86 @@
 |TargetSite: Void Main(System.String[])
 
 |Message: Index out of range
+
+|Data: System.Collections.ListDictionaryInternal
+-------------------
+
+
+-------------------
+11/11/2020 19:33
+|INFO:
+
+|Type: lab7.InvalidSymbolException
+
+|Source: lab7
+
+|TargetSite: Void Main(System.String[])
+
+|Message: Invalid symbol # entered
+
+|Data: System.Collections.ListDictionaryInternal
+-------------------
+
+
+-------------------
+11/11/2020 19:39
+|INFO:
+
+|Type: lab7.FileCannotBeFoundException
+
+|Source: lab7
+
+|TargetSite: System.Collections.Generic.List`1[lab7.Animal] ReadFile(System.String)
+
+|Message: File cannot be found
+
+|Data: System.Collections.ListDictionaryInternal
+-------------------
+
+
+-------------------
+11/11/2020 19:39
+|INFO:
+
+|Type: lab7.InvalidNumberException
+
+|Source: lab7
+
+|TargetSite: Void Main(System.String[])
+
+|Message: Invalid year of birth
+
+|Data: System.Collections.ListDictionaryInternal
+-------------------
+
+
+-------------------
+11/11/2020 19:39
+|INFO:
+
+|Type: System.IndexOutOfRangeException
+
+|Source: lab7
+
+|TargetSite: Void Main(System.String[])
+
+|Message: Index out of range
+
+|Data: System.Collections.ListDictionaryInternal
+-------------------
+
+
+-------------------
+11/11/2020 19:39
+|INFO:
+
+|Type: lab7.InvalidSymbolException
+
+|Source: lab7
+
+|TargetSite: Void Main(System.String[])
+
+|Message: Invalid symbol # entered
 
 |Data: System.Collections.ListDictionaryInternal
 -------------------
