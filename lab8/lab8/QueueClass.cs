@@ -1,13 +1,16 @@
 ﻿using System;
+using System.IO;
+
 namespace lab8
 {
-    public interface IQueue<T>
+    public interface IQueue<T> where T: struct
     {
         public void Add(T obj);
-        public void Remove(T obj);
+        public void Remove();
         public void ShowQueue(Queue<T> queue);
     }
     public class Queue<T> : IQueue<T>
+        where T: struct
     {
         T[] arr;
         const int defaultNum = 1;
@@ -55,13 +58,20 @@ namespace lab8
             }
         }
 
-        public void Remove(T obj)
+        public void Remove()
         {
-            if (arr.Length == 0)
+            try
             {
-                throw new System.InvalidOperationException("Unable to pop. Queue is empty.");
+                if (arr.Length == 0)
+                {
+                    throw new System.InvalidOperationException("Unable to pop. Queue is empty.");
+                }
             }
-            else
+            catch (InvalidOperationException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
             {
                 Array.Copy(arr, 1, arr, 0, arr.Length - 1);
                 Array.Resize<T>(ref arr, arr.Length - 1);
@@ -137,6 +147,21 @@ namespace lab8
         public static implicit operator int(Queue<T> obj)
         {
             return obj.arr.Length;
+        }
+
+        public void ToFile(string filePath)
+        {
+            using(StreamWriter writer = File.AppendText(filePath))
+            {
+                writer.WriteLine("\n--------------------\n");
+                foreach (T obj in arr)
+                {
+                    writer.WriteLine(obj);
+                }
+                writer.WriteLine("\n--------------------\n");
+
+                writer.Close();
+            }
         }
 
         public class Owner
