@@ -13,5 +13,13 @@ namespace lab8
             dub = dub1;
             bul = bul1;
         }
+
+        public override string ToString()
+        {
+            return @$"{num}
+{dub}
+{bul}
+";
+        }
     }
 }

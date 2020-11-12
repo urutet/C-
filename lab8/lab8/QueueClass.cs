@@ -122,6 +122,8 @@ namespace lab8
             for (int i = 0; i < arr.Length; i++)
             {
                 Console.WriteLine(arr[i]);
+                Console.WriteLine();
+
             }
         }
 
@@ -157,6 +159,7 @@ namespace lab8
                 foreach (T obj in arr)
                 {
                     writer.WriteLine(obj);
+                    writer.WriteLine();
                 }
                 writer.WriteLine("\n--------------------\n");
 
