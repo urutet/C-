@@ -17,7 +17,7 @@ namespace lab9
             c.Rename += programmer.OnRename;
 
             NameDelegate nameDelegate = c.CommandRename;
-            nameDelegate("C#");
+            nameDelegate.Invoke("C#");
             FeatureDelegate featureDelegate = c.CommandNewFeature;
             featureDelegate("no main");
 
@@ -33,9 +33,8 @@ namespace lab9
             Console.WriteLine($"Default string: {str}");
 
             Func<string, string> stringModification; //public delegate void Action<T>(T obj) возвращает void
-            stringModification = StringFunctions.DeleteSpaces;
-            stringModification += StringFunctions.UpperCase;
-            string str1 = stringModification(str);
+            stringModification = StringFunctions.UpperCase;
+            string str1 = stringModification.Invoke(str);
             Console.WriteLine(str1);
         }
     }

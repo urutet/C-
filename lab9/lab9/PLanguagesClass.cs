@@ -30,14 +30,12 @@ namespace lab9
 
         public void CommandRename(string name)
         {
-            //Console.WriteLine($"Language {Name} has been renamed to {name}!");
             Name = name;
             Rename?.Invoke(this, null);
         }
 
         public void CommandNewVersion(string version)
         {
-            //Console.WriteLine($"Version {Version} has been updated to {version}!");
             Version = version;
             NewVersion?.Invoke(this, null);
         }
@@ -53,7 +51,6 @@ namespace lab9
             else
             {
                 Features.Add(feature);
-                //Console.WriteLine($"New feature {feature} has been added to {Name}!");
                 NewFeature?.Invoke(this, null);
             }
         }
