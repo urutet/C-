@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-namespace lab7
+namespace lab12
 {
     public class Logger
     {
