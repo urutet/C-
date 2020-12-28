@@ -1,10 +1,14 @@
 ﻿using System;
 
-namespace lab5
+namespace lab14
 {
+    [Serializable]
     public class Lion: Mammals, IAnimal
     {
         public Lion() { }
+        public Lion(int s, int a) { position = s; age = a; }
+        [NonSerialized]
+        public int age;
         public override void eat()
         {
             Console.WriteLine("Lion drinks milk.");
@@ -33,6 +37,7 @@ namespace lab5
         {
             return @$"Info:
                     Position: {position}
+                    Age: {age}
                     Object type: Lion";
         }
     }

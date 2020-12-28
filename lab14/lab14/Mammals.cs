@@ -1,9 +1,10 @@
 ﻿using System;
-namespace lab5
+namespace lab14
 {
+    [Serializable]
     public abstract class Animal
     {
-        protected int position;
+        public int position;
         public abstract int move();
         public virtual void eat()
         {
@@ -25,7 +26,7 @@ namespace lab5
         void a_method();
 
     }
-
+    [Serializable]
     public class Mammals: Animal
     {
         public override void eat()

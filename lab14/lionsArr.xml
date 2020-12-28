@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<ArrayOfLion xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Lion>
+    <position>5</position>
+    <age>2</age>
+  </Lion>
+  <Lion>
+    <position>4</position>
+    <age>3</age>
+  </Lion>
+  <Lion>
+    <position>7</position>
+    <age>1</age>
+  </Lion>
+  <Lion>
+    <position>5</position>
+    <age>3</age>
+  </Lion>
+  <Lion>
+    <position>2</position>
+    <age>2</age>
+  </Lion>
+</ArrayOfLion>
