@@ -1,0 +1,8 @@
+12.12.2020 02.05 YINLog.txt: Void ShowDiskInfo() 
+12.12.2020 02.05 YINLog.txt: Void ShowFileInfo(System.String) 
+12.12.2020 02.05 YINLog.txt: Void ShowDirInfo(System.String) 
+12.12.2020 02.05 YINLog.txt: Void FileManagerActions(System.String) 
+12.12.2020 02.06 YINLog.txt: Void ShowDiskInfo() 
+12.12.2020 02.06 YINLog.txt: Void ShowFileInfo(System.String) 
+12.12.2020 02.06 YINLog.txt: Void ShowDirInfo(System.String) 
+12.12.2020 02.06 YINLog.txt: Void FileManagerActions(System.String) 

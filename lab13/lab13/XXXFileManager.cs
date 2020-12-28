@@ -1,12 +1,14 @@
 ﻿using System;
 using System.IO;
 using System.IO.Compression;
+using System.Reflection;
 namespace lab13
 {
     public static class YINFileManager
     {
         public static void FileManagerActions(string disk)
         {
+            YINLog.Add(Convert.ToString(MethodBase.GetCurrentMethod()));
             if (Directory.Exists(disk))
             {
                 var diskInf = new DirectoryInfo(disk);
@@ -89,6 +91,7 @@ namespace lab13
                         File.Copy(txt.FullName, @$"{disk}YINfiles/{txt.Name}");
                     }
 
+                    //xxxfilemanager C
                     yinDirInfo.MoveTo(@$"{disk}YINInspect/YINfiles");
                     ZipFile.CreateFromDirectory(@$"{disk}YINInspect/YINfiles", @$"{disk}YINInspect/YINfiles.zip");
                     ZipFile.ExtractToDirectory(@$"{disk}YINInspect/YINfiles.zip", @$"{disk}YINInspect/ExtractedFiles");
